@@ -1,0 +1,77 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+filetype off
+
+set rtp+=$HOME/.vim/bundle/vundle/
+call vundle#rc()
+
+" Keep Vundle current
+Bundle 'gmarik/vundle'
+
+" GitHub hosted repos
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'othree/xml.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Raimondi/delimitMate'
+Bundle 'sbanwart/todo.txt-vim'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'hallison/vim-markdown'
+Bundle 'PProvost/vim-ps1'
+Bundle 'vimwiki/vimwiki'
+Bundle 'mattn/calendar-vim'
+Bundle 'nanotech/jellybeans.vim'
+
+" vim-scripts repos
+Bundle 'SearchComplete'
+
+" vim-scripts repos
+Bundle 'taglist'
+Bundle 'tir_black'
+
+filetype plugin indent on
+
+set softtabstop=4
+set shiftwidth=4
+set smartindent
+set expandtab
+set number
+set relativenumber
+set nobackup
+
+colorscheme jellybeans
+
+if has('gui_running')
+    set guifont=Consolas:h8:cANSI
+endif
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+
+let g:vimwiki_list = [{'path': 'C:\Users\Scott\Documents\vimwiki\', 'path_html': 'C:\Users\Scott\Dropbox\vimwiki_html', 'auto_export': 1}]
