@@ -25,6 +25,7 @@ Bundle 'PProvost/vim-ps1'
 Bundle 'vimwiki/vimwiki'
 Bundle 'mattn/calendar-vim'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'jnwhiteh/vim-golang'
 
 " vim-scripts repos
 Bundle 'SearchComplete'
