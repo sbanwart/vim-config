@@ -26,6 +26,7 @@ Bundle 'vimwiki/vimwiki'
 Bundle 'mattn/calendar-vim'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'bling/vim-airline'
 
 " vim-scripts repos
 Bundle 'SearchComplete'
