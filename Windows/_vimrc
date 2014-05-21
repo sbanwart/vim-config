@@ -44,6 +44,7 @@ set expandtab
 set number
 set relativenumber
 set nobackup
+set backspace=indent,eol,start
 
 colorscheme jellybeans
 
