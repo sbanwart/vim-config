@@ -31,6 +31,7 @@ Bundle 'bling/vim-airline'
 Bundle 'majutsushi/tagbar'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'kongo2002/fsharp-vim'
 
 " vim-scripts repos
 Bundle 'SearchComplete'
@@ -78,3 +79,8 @@ function MyDiff()
 endfunction
 
 let g:vimwiki_list = [{'path': 'C:\Users\Scott\Documents\vimwiki\', 'path_html': 'C:\Users\Scott\Dropbox\vimwiki_html', 'auto_export': 0}]
+
+function OpenTodo()
+  :e ~/Dropbox/todo/done.txt
+  :sp ~/Dropbox/todo/todo.txt
+endfunction
