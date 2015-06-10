@@ -19,12 +19,9 @@ Bundle 'othree/xml.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
-Bundle 'sbanwart/todo.txt-vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'hallison/vim-markdown'
 Bundle 'PProvost/vim-ps1'
-Bundle 'vimwiki/vimwiki'
-Bundle 'mattn/calendar-vim'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'bling/vim-airline'
@@ -78,9 +75,3 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
-let g:vimwiki_list = [{'path': 'C:\Users\Scott\Documents\vimwiki\', 'path_html': 'C:\Users\Scott\Dropbox\vimwiki_html', 'auto_export': 0}]
-
-function OpenTodo()
-  :e ~/Dropbox/todo/done.txt
-  :sp ~/Dropbox/todo/todo.txt
-endfunction
