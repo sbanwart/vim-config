@@ -29,6 +29,9 @@ Bundle 'majutsushi/tagbar'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kongo2002/fsharp-vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'mxw/vim-jsx'
+Bundle 'leafgarland/typescript-vim'
 
 " vim-scripts repos
 Bundle 'SearchComplete'
