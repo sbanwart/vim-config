@@ -1,48 +1,27 @@
-set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
-
-filetype off
-
-set rtp+=$HOME/.vim/bundle/vundle/
-call vundle#rc()
-
-" Keep Vundle current
-Bundle 'gmarik/vundle'
-
-" GitHub hosted repos
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'othree/xml.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'Raimondi/delimitMate'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'hallison/vim-markdown'
-Bundle 'PProvost/vim-ps1'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'bling/vim-airline'
-Bundle 'majutsushi/tagbar'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'kongo2002/fsharp-vim'
-
-" vim-scripts repos
-Bundle 'SearchComplete'
-Bundle 'tir_black'
-
-filetype plugin indent on
-
-set softtabstop=4
-set shiftwidth=4
-set smartindent
-set expandtab
-set number
-set nobackup
-set backspace=indent,eol,start
+call plug#begin()
+Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'fatih/vim-go'
+Plug 'jiangmiao/auto-pairs'
+Plug 'majutsushi/tagbar'
+Plug 'myusuf3/numbers.vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'othree/xml.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'PProvost/vim-ps1'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'OmniSharp/omnisharp-vim'
+call plug#end()
 
 colorscheme jellybeans
 
@@ -50,28 +29,4 @@ if has('gui_running')
     set guifont=Consolas:h8:cANSI
 endif
 
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
-
+let g:airline_theme='jellybeans'
